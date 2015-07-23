@@ -1,38 +1,37 @@
-'use strict';
-
-var React = require('react-native');
-var {
+let React = require('react-native');
+let {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+  StatusBarIOS
 } = React;
 
-var meowth = React.createClass({
-  render: function() {
+class Meowth extends React.Component {
+  componentWillMount() {
+    StatusBarIOS.setStyle('light-content');
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Meowth
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          Subtitle
         </Text>
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#5a6faf',
+    backgroundColor: '#084265',
   },
   welcome: {
     color: '#F5FCFF',
@@ -47,4 +46,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('meowth', () => meowth);
+AppRegistry.registerComponent('meowth', () => Meowth);
