@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "inner-shadow.png"
+      "filename" : "watson-logo.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "inner-shadow@2x.png"
+      "filename" : "watson-logo@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "inner-shadow@3x.png"
+      "filename" : "watson-logo@3x.png"
     }
   ],
   "info" : {
