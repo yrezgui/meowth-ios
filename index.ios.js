@@ -1,10 +1,10 @@
 let React = require('react-native');
+let FreshSetup = require('./src/FreshSetup');
 let {
   AppRegistry,
+  NavigatorIOS,
+  StatusBarIOS,
   StyleSheet,
-  Text,
-  View,
-  StatusBarIOS
 } = React;
 
 class Meowth extends React.Component {
@@ -14,35 +14,27 @@ class Meowth extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Meowth
-        </Text>
-        <Text style={styles.instructions}>
-          Subtitle
-        </Text>
-      </View>
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          component: FreshSetup,
+          title: 'Welcome',
+          backButtonTitle: 'Back',
+          passProps: {
+            pageId: 'welcome',
+          }
+        }}
+        barTintColor="#084265"
+        tintColor="#ffffff"
+        titleTextColor="#ffffff"
+      />
     );
   }
 }
-
+ 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#084265',
-  },
-  welcome: {
-    color: '#F5FCFF',
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#CCCCCC',
-    marginBottom: 5,
   },
 });
 
