@@ -28,3 +28,4 @@ node_modules/
 npm-debug.log
 *.sublime-workspace
 *.sublime-project
+main.jsbundle
