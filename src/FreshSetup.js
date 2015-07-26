@@ -1,12 +1,12 @@
 let React = require('react-native');
 let pages = require('./pagesContent');
+let RecordPage = require('./RecordPage');
 let {
   StyleSheet,
   Text,
   View,
   Image,
   TouchableHighlight,
-  AlertIOS
 } = React;
 
 let styles = StyleSheet.create({
@@ -50,17 +50,32 @@ let styles = StyleSheet.create({
 
 class FreshSetup extends React.Component {
   _onPressButton() {
-    if (!pages[this.props.pageId].next) {
-      return AlertIOS.alert('done!');
+    let page, title, props;
+
+    if (pages[this.props.pageId].next) {
+      title = pages[pages[this.props.pageId].next].title;
+      page = FreshSetup;
+      props = {
+        pageId: pages[this.props.pageId].next,
+      };
+    } else {
+      title = 'Meowth';
+      page = RecordPage;
     }
 
     this.props.navigator.push({
-      component: FreshSetup,
+      component: page,
       backButtonTitle: 'Back',
-      title: pages[pages[this.props.pageId].next].title,
-      passProps: {
-        pageId: pages[this.props.pageId].next,
-      }
+      title: title,
+      passProps: props,
+      rightButtonTitle: 'Skip',
+      onRightButtonPress: function () {
+        this.props.navigator.push({
+          component: RecordPage,
+          backButtonTitle: 'Back',
+          title: 'Meowth',
+        });
+      }.bind(this)
     });
   }
 
