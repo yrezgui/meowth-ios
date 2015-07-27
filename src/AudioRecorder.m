@@ -14,7 +14,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(setup:(NSString *)filename)
+RCT_EXPORT_METHOD(setup:(NSString *)filename :(RCTResponseSenderBlock)callback)
 {
   NSString*     fullPath  = [NSHomeDirectory() stringByAppendingPathComponent:filename];
   NSURL*        fileUrl   = [NSURL fileURLWithPath:fullPath];
@@ -27,6 +27,7 @@ RCT_EXPORT_METHOD(setup:(NSString *)filename)
   
   RCTLogInfo(@"Create audio file: %@", fullPath);
   _audioRecorder = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:&err];
+  callback(@[fullPath]);
 }
 
 RCT_EXPORT_METHOD(start)
