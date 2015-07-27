@@ -1,7 +1,10 @@
 let React = require('react-native');
-let RecordButton = require('./RecordButton');
+var base64 = require('base-64');
 let Constants = require('./Constants');
 let AudioRecorder = require('NativeModules').AudioRecorder;
+let HttpRequest = require('NativeModules').HttpRequest;
+let RecordButton = require('./RecordButton');
+
 let {
   StyleSheet,
   Text,
@@ -10,6 +13,18 @@ let {
 } = React;
 
 let Status = Constants.STATUS;
+
+function generateBasicAuth (username, password) {
+  return 'Basic ' + base64.encode(username + ':' + password);
+}
+
+function generateHttpHeaders () {
+  return {
+    'Authorization': generateBasicAuth(Constants.USERNAME, Constants.PASSWORD),
+    'Content-Type': Constants.MIME_TYPE,
+    'Transfer-Encoding': 'chunked',
+  };
+}
 
 class RecordPage extends React.Component {
   constructor(props) {
@@ -23,25 +38,24 @@ class RecordPage extends React.Component {
   _onPress() {
     switch(this.state.status) {
       case Status.WAITING:
-        AudioRecorder.setup(Constants.RECORD_FILE);
-        AudioRecorder.start();
-        this.setState({
-          status: Status.RECORDING,
+        AudioRecorder.setup(Constants.RECORD_FILE, function callback (fullPath) {
+          AudioRecorder.start();
+
+          this.setState({
+            status: Status.RECORDING,
+            fullPath: fullPath,
+          });
         });
         break;
 
       case Status.RECORDING:
         this.setState({
-          status: Status.WAITING,
+          status: Status.RECOGNIZING,
         });
-        AudioRecorder.stop();
-        break;
 
-      // case Status.PLAYING:
-      //   this.setState({
-      //     status: Status.WAITING,
-      //   });
-      //   break;
+        AudioRecorder.stop();
+        HttpRequest.postFile(Constants.API_URL, generateHttpHeaders(), this.state.fullPath);
+        break;
     }
   }
 
