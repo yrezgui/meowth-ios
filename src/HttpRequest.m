@@ -12,7 +12,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(postFile:(NSString *)url :(NSDictionary *)headers :(NSString *)file)
+RCT_EXPORT_METHOD(postFile:(NSString *)url headers:(NSDictionary *)headers file:(NSString *)file)
 {
   RCTLogInfo(@"Send POST request %@", file);
 }

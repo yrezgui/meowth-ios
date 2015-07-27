@@ -28,7 +28,7 @@ RCT_EXPORT_MODULE();
   };
 }
 
-RCT_EXPORT_METHOD(setup:(NSString *)filename :(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(setup:(NSString *)filename callback:(RCTResponseSenderBlock)callback)
 {
   NSString*     fullPath  = [NSHomeDirectory() stringByAppendingPathComponent:filename];
   NSURL*        fileUrl   = [NSURL fileURLWithPath:fullPath];
