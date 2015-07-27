@@ -14,6 +14,20 @@
 
 RCT_EXPORT_MODULE();
 
+- (NSDictionary *)constantsToExport
+{
+  return @{
+    @"AudioQuality": @{
+      @"MIN": @(AVAudioQualityMin),
+      @"LOW": @(AVAudioQualityLow),
+      @"MEDIUM": @(AVAudioQualityMedium),
+      @"HIGH": @(AVAudioQualityHigh),
+      @"MAX": @(AVAudioQualityMax),
+      @"MIN": @(AVAudioQualityMin),
+    }
+  };
+}
+
 RCT_EXPORT_METHOD(setup:(NSString *)filename :(RCTResponseSenderBlock)callback)
 {
   NSString*     fullPath  = [NSHomeDirectory() stringByAppendingPathComponent:filename];
