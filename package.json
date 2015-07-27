@@ -1,12 +1,13 @@
 {
-  "name": "meowth",
+  "name": "meowth-ios",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react-native": "^0.7.1",
-    "react-native-audio": "^0.1.5"
-  }
+    "react-native": "^0.7.1"
+  },
+  "author": "Yacine Rezgui <rezgui.y@gmail.com>",
+  "license": "Apache-2.0"
 }

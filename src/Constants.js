@@ -1,5 +1,5 @@
 module.exports = {
-  RECORD_FILE: '/test.wav',
+  RECORD_FILE: '/123.pcm',
   STATUS: {
     WAITING: 'WAITING',
     RECORDING: 'RECORDING',

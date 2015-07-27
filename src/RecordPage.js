@@ -1,7 +1,7 @@
 let React = require('react-native');
 let RecordButton = require('./RecordButton');
 let Constants = require('./Constants');
-let AudioRecorder = require('NativeModules').AudioRecorderManager;
+let AudioRecorder = require('NativeModules').AudioRecorder;
 let {
   StyleSheet,
   Text,
@@ -23,8 +23,8 @@ class RecordPage extends React.Component {
   _onPress() {
     switch(this.state.status) {
       case Status.WAITING:
-        AudioRecorder.prepareRecordingAtPath(Constants.RECORD_FILE);
-        AudioRecorder.startRecording();
+        AudioRecorder.setup(Constants.RECORD_FILE);
+        AudioRecorder.start();
         this.setState({
           status: Status.RECORDING,
         });
@@ -32,17 +32,16 @@ class RecordPage extends React.Component {
 
       case Status.RECORDING:
         this.setState({
-          status: Status.PLAYING,
-        });
-        AudioRecorder.stopRecording();
-        AudioRecorder.playRecording();
-        break;
-
-      case Status.PLAYING:
-        this.setState({
           status: Status.WAITING,
         });
+        AudioRecorder.stop();
         break;
+
+      // case Status.PLAYING:
+      //   this.setState({
+      //     status: Status.WAITING,
+      //   });
+      //   break;
     }
   }
 
