@@ -6,6 +6,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "base-64": "^0.1.0",
     "react-native": "^0.7.1"
   },
   "author": "Yacine Rezgui <rezgui.y@gmail.com>",

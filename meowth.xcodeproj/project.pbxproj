@@ -28,6 +28,7 @@
 		ECF537F11B605ABE00F0FDD6 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECF537EF1B605ABE00F0FDD6 /* beep.wav */; };
 		ECF537F21B605ABE00F0FDD6 /* blop.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECF537F01B605ABE00F0FDD6 /* blop.wav */; };
 		ECF5380B1B655DBB00F0FDD6 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF5380A1B655DBB00F0FDD6 /* AudioRecorder.m */; };
+		ECF538181B66766800F0FDD6 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF538171B66766700F0FDD6 /* HttpRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		ECF537F01B605ABE00F0FDD6 /* blop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = blop.wav; path = assets/blop.wav; sourceTree = "<group>"; };
 		ECF538091B655DBB00F0FDD6 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = src/AudioRecorder.h; sourceTree = "<group>"; };
 		ECF5380A1B655DBB00F0FDD6 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = src/AudioRecorder.m; sourceTree = "<group>"; };
+		ECF538161B66766700F0FDD6 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpRequest.h; path = src/HttpRequest.h; sourceTree = "<group>"; };
+		ECF538171B66766700F0FDD6 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpRequest.m; path = src/HttpRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +305,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				ECF538161B66766700F0FDD6 /* HttpRequest.h */,
+				ECF538171B66766700F0FDD6 /* HttpRequest.m */,
 				ECF538091B655DBB00F0FDD6 /* AudioRecorder.h */,
 				ECF5380A1B655DBB00F0FDD6 /* AudioRecorder.m */,
 				EC8AB5521B59A171006EB750 /* AudioPlayerManager.h */,
@@ -558,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECF5380B1B655DBB00F0FDD6 /* AudioRecorder.m in Sources */,
+				ECF538181B66766800F0FDD6 /* HttpRequest.m in Sources */,
 				EC8AB5571B59A171006EB750 /* AudioRecorderManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
