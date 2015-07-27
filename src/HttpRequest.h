@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCTBridgeModule.h"
+#import "RCTLog.h"
 
-@interface HttpRequest : NSObject
+@interface HttpRequest : NSObject <RCTBridgeModule>
 
 @end

@@ -10,4 +10,11 @@
 
 @implementation HttpRequest
 
+RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(postFile:(NSString *)url :(NSDictionary *)headers :(NSString *)file)
+{
+  RCTLogInfo(@"Send POST request %@", file);
+}
+
 @end
