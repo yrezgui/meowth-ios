@@ -23,8 +23,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		EC8AB5561B59A171006EB750 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8AB5531B59A171006EB750 /* AudioPlayerManager.m */; };
-		EC8AB5571B59A171006EB750 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8AB5551B59A171006EB750 /* AudioRecorderManager.m */; };
 		ECF537F11B605ABE00F0FDD6 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECF537EF1B605ABE00F0FDD6 /* beep.wav */; };
 		ECF537F21B605ABE00F0FDD6 /* blop.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECF537F01B605ABE00F0FDD6 /* blop.wav */; };
 		ECF5380B1B655DBB00F0FDD6 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF5380A1B655DBB00F0FDD6 /* AudioRecorder.m */; };
@@ -133,10 +131,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		EC8AB5521B59A171006EB750 /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayerManager.h; path = "node_modules/react-native-audio/AudioPlayerManager.h"; sourceTree = "<group>"; };
-		EC8AB5531B59A171006EB750 /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerManager.m; path = "node_modules/react-native-audio/AudioPlayerManager.m"; sourceTree = "<group>"; };
-		EC8AB5541B59A171006EB750 /* AudioRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorderManager.h; path = "node_modules/react-native-audio/AudioRecorderManager.h"; sourceTree = "<group>"; };
-		EC8AB5551B59A171006EB750 /* AudioRecorderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorderManager.m; path = "node_modules/react-native-audio/AudioRecorderManager.m"; sourceTree = "<group>"; };
 		ECF537EF1B605ABE00F0FDD6 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beep.wav; path = assets/beep.wav; sourceTree = "<group>"; };
 		ECF537F01B605ABE00F0FDD6 /* blop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = blop.wav; path = assets/blop.wav; sourceTree = "<group>"; };
 		ECF538091B655DBB00F0FDD6 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = src/AudioRecorder.h; sourceTree = "<group>"; };
@@ -309,10 +303,6 @@
 				ECF538171B66766700F0FDD6 /* HttpRequest.m */,
 				ECF538091B655DBB00F0FDD6 /* AudioRecorder.h */,
 				ECF5380A1B655DBB00F0FDD6 /* AudioRecorder.m */,
-				EC8AB5521B59A171006EB750 /* AudioPlayerManager.h */,
-				EC8AB5531B59A171006EB750 /* AudioPlayerManager.m */,
-				EC8AB5541B59A171006EB750 /* AudioRecorderManager.h */,
-				EC8AB5551B59A171006EB750 /* AudioRecorderManager.m */,
 				13B07FAE1A68108700A75B9A /* meowth */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* meowthTests */,
@@ -564,10 +554,8 @@
 			files = (
 				ECF5380B1B655DBB00F0FDD6 /* AudioRecorder.m in Sources */,
 				ECF538181B66766800F0FDD6 /* HttpRequest.m in Sources */,
-				EC8AB5571B59A171006EB750 /* AudioRecorderManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				EC8AB5561B59A171006EB750 /* AudioPlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
