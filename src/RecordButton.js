@@ -20,22 +20,40 @@ class RecordButton extends React.Component {
         break;
 
       case Status.RECORDING:
-        label = 'Recording…';
+        label = 'Stop recording';
         break;
 
-      case Status.PLAYING:
-        label = 'Playing…';
+      case Status.RECOGNIZING:
+        label = 'Recognizing…';
         break;
     }
 
     return label;
   }
 
+  getBackgroundColor(status) {
+    let bgColor = '#5B99FA';
+
+    switch(status) {
+      case Status.RECORDING:
+        bgColor = '#FA5B8B';
+        break;
+
+      case Status.RECOGNIZING:
+        bgColor = null;
+        break;
+    }
+
+    return {
+      backgroundColor: bgColor
+    };
+  }
+
   render() {
     return (
       <TouchableHighlight
         underlayColor="#3969B4"
-        style={styles.button}
+        style={[styles.button, this.getBackgroundColor(this.props.status)]}
         onPress={this.props.onPress}
       >
         <Text style={styles.label}>
@@ -48,12 +66,11 @@ class RecordButton extends React.Component {
 
 var styles = StyleSheet.create({
   button: {
-    marginTop: 20,
+    marginTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 10,
     paddingBottom: 10,
-    backgroundColor: '#5B99FA',
     borderRadius: 4,
   },
   label: {
