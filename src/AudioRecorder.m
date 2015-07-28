@@ -35,18 +35,42 @@ RCT_EXPORT_MODULE();
   return basePath;
 }
 
+
 RCT_EXPORT_METHOD(setup:(NSString *)filename callback:(RCTResponseSenderBlock)callback)
 {
+  AVAudioSession *_audioSession = [AVAudioSession sharedInstance];
+  NSError *err = nil;
+  [_audioSession setCategory :AVAudioSessionCategoryPlayAndRecord error:&err];
+  
+  if(err){
+    NSLog(@"audioSession: %@ %ld %@", [err domain], (long)[err code], [[err userInfo] description]);
+    return;
+  }
+  
+  err = nil;
+  
+  [_audioSession setActive:YES error:&err];
+  
+  if(err){
+    NSLog(@"audioSession: %@ %ld %@", [err domain], (long)[err code], [[err userInfo] description]);
+    return;
+  }
+  
+  err = nil;
+  
   NSString*     fullPath  = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filename];
   NSURL*        fileUrl   = [NSURL fileURLWithPath:fullPath];
-  NSError*      err       = nil;
   NSDictionary* settings  = @{
     AVEncoderAudioQualityKey: [NSNumber numberWithInt:AVAudioQualityHigh],
     AVSampleRateKey: [NSNumber numberWithInt:48000],
     AVNumberOfChannelsKey: [NSNumber numberWithInt:2],
 };
   
+  NSLog(@"file URL: %@", fullPath);
+  
   _audioRecorder = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:&err];
+  [_audioRecorder prepareToRecord];
+  
   callback(@[fullPath]);
 }
 
