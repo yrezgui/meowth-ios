@@ -53,30 +53,29 @@ class FreshSetup extends React.Component {
     let page, title, props;
 
     if (pages[this.props.pageId].next) {
-      title = pages[pages[this.props.pageId].next].title;
-      page = FreshSetup;
-      props = {
-        pageId: pages[this.props.pageId].next,
-      };
+      this.props.navigator.push({
+        component: FreshSetup,
+        backButtonTitle: 'Back',
+        title: pages[pages[this.props.pageId].next].title,
+        passProps: {
+          pageId: pages[this.props.pageId].next,
+        },
+        rightButtonTitle: 'Skip',
+        onRightButtonPress: function () {
+          this.props.navigator.push({
+            component: RecordPage,
+            backButtonTitle: 'Back',
+            title: 'Meowth',
+          });
+        }.bind(this)
+      });
     } else {
-      title = 'Meowth';
-      page = RecordPage;
+      this.props.navigator.push({
+        component: RecordPage,
+        backButtonTitle: 'Back',
+        title: 'Meowth',
+      });
     }
-
-    this.props.navigator.push({
-      component: page,
-      backButtonTitle: 'Back',
-      title: title,
-      passProps: props,
-      rightButtonTitle: 'Skip',
-      onRightButtonPress: function () {
-        this.props.navigator.push({
-          component: RecordPage,
-          backButtonTitle: 'Back',
-          title: 'Meowth',
-        });
-      }.bind(this)
-    });
   }
 
   render() {
