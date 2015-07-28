@@ -14,7 +14,6 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(postFile:(NSString *)url headers:(NSDictionary *)headers filePath:(NSString *)filePath callback:(RCTResponseSenderBlock)callback)
 {
-  RCTLogInfo(@"Send POST request %@", filePath);
   
   NSData *fileData = [NSData dataWithContentsOfFile:filePath];
   

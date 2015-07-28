@@ -39,20 +39,17 @@ RCT_EXPORT_METHOD(setup:(NSString *)filename callback:(RCTResponseSenderBlock)ca
     AVNumberOfChannelsKey: [NSNumber numberWithInt:2],
 };
   
-  RCTLogInfo(@"Create audio file: %@", fullPath);
   _audioRecorder = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:&err];
   callback(@[fullPath]);
 }
 
 RCT_EXPORT_METHOD(start)
 {
-  RCTLogInfo(@"Start recording");
   [_audioRecorder record];
 }
 
 RCT_EXPORT_METHOD(stop)
 {
-  RCTLogInfo(@"Stop recording");
   [_audioRecorder stop];
 }
 
