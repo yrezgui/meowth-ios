@@ -67,6 +67,7 @@ class RecordButton extends React.Component {
 var styles = StyleSheet.create({
   button: {
     marginTop: 10,
+    marginBottom: 20,
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 10,
