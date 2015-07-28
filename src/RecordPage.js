@@ -4,6 +4,7 @@ let Constants = require('./Constants');
 let AudioRecorder = require('NativeModules').AudioRecorder;
 let HttpRequest = require('NativeModules').HttpRequest;
 let RecordButton = require('./RecordButton');
+let Transcript = require('./Transcript');
 
 let {
   StyleSheet,
@@ -25,6 +26,7 @@ class RecordPage extends React.Component {
 
     this.state = {
       status: Status.WAITING,
+      transcripts: []
     };
   }
 
@@ -40,10 +42,8 @@ class RecordPage extends React.Component {
 
     this.setState({
       status: Status.WAITING,
-      transcript: transcript,
+      transcripts: this.state.transcripts.concat([transcript]),
     });
-
-    AlertIOS.alert(transcript);
   }
 
   _onPress() {
@@ -86,6 +86,7 @@ class RecordPage extends React.Component {
           status={this.state.status}
           onPress={this._onPress.bind(this)}
         />
+        {this.state.transcripts.map((text, key) => <Transcript key={key} text={text} />)}
       </View>
     );
   }
