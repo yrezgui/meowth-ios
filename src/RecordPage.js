@@ -9,21 +9,14 @@ let {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  AlertIOS,
 } = React;
 
 let Status = Constants.STATUS;
 
-function generateBasicAuth (username, password) {
+function generateBasicAuth(username, password) {
   return 'Basic ' + base64.encode(username + ':' + password);
-}
-
-function generateHttpHeaders () {
-  return {
-    'Authorization': generateBasicAuth(Constants.USERNAME, Constants.PASSWORD),
-    'Content-Type': Constants.MIME_TYPE,
-    'Transfer-Encoding': 'chunked',
-  };
 }
 
 class RecordPage extends React.Component {
@@ -33,6 +26,24 @@ class RecordPage extends React.Component {
     this.state = {
       status: Status.WAITING,
     };
+  }
+
+  _onRecognize(error, rawResponse) {
+    let response = JSON.parse(rawResponse);
+
+    let transcript = null;
+    let alternatives = response.results.length && response.results[0].alternatives;
+
+    if (alternatives.length) {
+      transcript = alternatives[0].transcript;
+    }
+
+    this.setState({
+      status: Status.WAITING,
+      transcript: transcript,
+    });
+
+    AlertIOS.alert(transcript);
   }
 
   _onPress() {
@@ -45,7 +56,7 @@ class RecordPage extends React.Component {
             status: Status.RECORDING,
             fullPath: fullPath,
           });
-        });
+        }.bind(this));
         break;
 
       case Status.RECORDING:
@@ -53,8 +64,14 @@ class RecordPage extends React.Component {
           status: Status.RECOGNIZING,
         });
 
+        let headers = {
+          'Authorization': generateBasicAuth(Constants.USERNAME, Constants.PASSWORD),
+          'Content-Type': Constants.MIME_TYPE,
+          'Transfer-Encoding': 'chunked',
+        };
+
         AudioRecorder.stop();
-        HttpRequest.postFile(Constants.API_URL, generateHttpHeaders(), this.state.fullPath);
+        HttpRequest.postFile(Constants.API_URL, headers, this.state.fullPath, this._onRecognize.bind(this));
         break;
     }
   }
@@ -77,7 +94,7 @@ class RecordPage extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop: 70,
     alignItems: 'center',
     backgroundColor: '#084265',
   },
