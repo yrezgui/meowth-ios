@@ -1,5 +1,5 @@
 module.exports = {
-  RECORD_FILE: '/123.pcm',
+  RECORD_FILE: '/voice.pcm',
   STATUS: {
     WAITING: 'WAITING',
     RECORDING: 'RECORDING',

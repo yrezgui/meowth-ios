@@ -30,7 +30,7 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(setup:(NSString *)filename callback:(RCTResponseSenderBlock)callback)
 {
-  NSString*     fullPath  = [NSHomeDirectory() stringByAppendingPathComponent:filename];
+  NSString*     fullPath  = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
   NSURL*        fileUrl   = [NSURL fileURLWithPath:fullPath];
   NSError*      err       = nil;
   NSDictionary* settings  = @{
