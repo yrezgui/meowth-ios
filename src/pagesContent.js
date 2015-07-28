@@ -2,13 +2,13 @@ let pages = {
   welcome: {
     source: require('image!app-logo'),
     title: 'Welcome to Meowth!',
-    subTitle: 'Meowth is a translation that will record your voice in English and translate your sentence in French',
+    subTitle: 'Meowth is a translation that will record your voice in English and transcript it',
     next: 'howItWorks',
   },
   howItWorks: {
     source: require('image!how-it-works'),
     title: 'How it works ?',
-    subTitle: 'Meowth is using three APIs related to human languages powered by IBM Watson & BlueMix',
+    subTitle: 'Meowth is using APIs related to human languages powered by IBM Watson',
     next: 'poweredBy',
   },
   poweredBy: {
@@ -21,7 +21,7 @@ let pages = {
     source: require('image!service-speech-to-text'),
     title: 'Speech To Text',
     subTitle: 'This API takes an audio file as an input and returns a text \n',
-    next: 'translation',
+    next: null,
   },
   translation: {
     source: require('image!service-translation'),
