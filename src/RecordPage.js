@@ -11,7 +11,6 @@ let {
   Text,
   View,
   TouchableHighlight,
-  AlertIOS,
 } = React;
 
 let Status = Constants.STATUS;
