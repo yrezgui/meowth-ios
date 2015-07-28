@@ -4,8 +4,6 @@ module.exports = {
     WAITING: 'WAITING',
     RECORDING: 'RECORDING',
     RECOGNIZING: 'RECOGNIZING',
-    DISPLAYING: 'DISPLAYING',
-    PLAYING: 'PLAYING',
   },
   API_URL: 'https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?continuous=true',
   MIME_TYPE: 'audio/l16; rate=48000; channels=2',
