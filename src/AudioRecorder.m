@@ -37,7 +37,6 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(setup:(NSString *)filename callback:(RCTResponseSenderBlock)callback)
 {
-  NSString*     fullPath  = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
   NSString*     fullPath  = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filename];
   NSURL*        fileUrl   = [NSURL fileURLWithPath:fullPath];
   NSError*      err       = nil;
