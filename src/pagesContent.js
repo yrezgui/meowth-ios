@@ -2,7 +2,7 @@ let pages = {
   welcome: {
     source: require('image!app-logo'),
     title: 'Welcome to Meowth!',
-    subTitle: 'Meowth is a translation that will record your voice in English and transcript it',
+    subTitle: 'Meowth will record your voice in English and transcript it',
     next: 'howItWorks',
   },
   howItWorks: {
